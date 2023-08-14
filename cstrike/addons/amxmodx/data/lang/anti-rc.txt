@@ -1,0 +1,7 @@
+[lt]
+CHAT_PLAYER_KICKED = %s ^3%s ^1buvo išmestas, nes bandė reconnect'intis ^3%d ^1sek. bėgy.
+CONSOLE_KICKED = Momentinis reconnect'inimasis yra draudžiamas. Prašome palaukti %d sek. prieš bandant vėl.
+
+[en]
+CHAT_PLAYER_KICKED = %s ^3%s ^1was kicked for reconnecting within ^3%d ^1seconds.
+CONSOLE_KICKED = Immediate reconnection is forbidden. Please wait %d seconds before trying again.
