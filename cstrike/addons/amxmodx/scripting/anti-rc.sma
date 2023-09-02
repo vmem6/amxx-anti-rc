@@ -28,20 +28,22 @@ enum _:PlayerData
 }
 
 new Trie:g_user_map;
-new g_in_rc = 0;
+new g_in_rc;
 
-new g_pcvar_admin_immunity = 0;
-new g_pcvar_admin_flag = 0;
-new g_pcvar_rc_time = 0;
-new g_pcvar_detect_type = 0;
-new g_pcvar_chat_show_n_rc_attemps = 0;
-new g_pcvar_chat_show = 0;
-new g_pcvar_prefix = 0;
+new g_pcvar_admin_immunity;
+new g_pcvar_admin_flag;
+new g_pcvar_rc_time;
+new g_pcvar_detect_type;
+new g_pcvar_chat_show_n_rc_attemps;
+new g_pcvar_chat_show;
+new g_pcvar_prefix;
 
 public plugin_init()
 {
   register_plugin(PLUGIN, VERSION, AUTHOR);
   register_dictionary(DICTIONARY);
+
+  /* CVars */
 
   g_pcvar_admin_immunity          = register_cvar("ar_admin_immunity", "0");
   g_pcvar_admin_flag              = register_cvar("ar_admin_flag", "g");
@@ -50,6 +52,8 @@ public plugin_init()
   g_pcvar_chat_show               = register_cvar("ar_show_in_chat", "1");
   g_pcvar_chat_show_n_rc_attemps  = register_cvar("ar_rc_attempts_to_show_in_chat", "3");
   g_pcvar_prefix                  = register_cvar("ar_prefix", "^3[AR]^1");
+
+  /* Miscellaneous */
 
   g_user_map = TrieCreate();
 }
