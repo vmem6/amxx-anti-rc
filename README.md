@@ -31,7 +31,6 @@ _Note: the min. and max. values are not currently enforced, and are only provide
     <td align="center">Max. value</td>
     <td>Description</td>
   </tr>
-  <tr><td colspan="6" align="center">Core</td></tr>
   <tr>
     <td><code>ar_admin_immunity</code></td>
     <td align="center">boolean</td>
