@@ -68,7 +68,7 @@ public client_connect(pid)
     return PLUGIN_CONTINUE;
   }
 
-  static id[MAX_AUTHID_LENGTH + 1];
+  new id[MAX_AUTHID_LENGTH + 1];
   get_detect_id(pid, id, charsmax(id));
   
   new player[PlayerData];
@@ -89,8 +89,8 @@ public client_connect(pid)
         && player[pd_rc_count] <= get_pcvar_num(g_pcvar_chat_show_n_rc_attemps)
       ) {
         /* TODO: eventually replace with a global stock that formats messages. */
-        static name[MAX_NAME_LENGTH + 1];
-        static msg[MAX_FMT_LENGTH + 1];
+        new name[MAX_NAME_LENGTH + 1];
+        new msg[MAX_FMT_LENGTH + 1];
         get_user_name(pid, name, charsmax(name));
         get_pcvar_string(g_pcvar_prefix, msg, charsmax(msg));
         formatex(
@@ -114,7 +114,7 @@ public client_disconnected(pid)
     return PLUGIN_CONTINUE;
   }
 
-  static id[MAX_AUTHID_LENGTH + 1];
+  new id[MAX_AUTHID_LENGTH + 1];
   get_detect_id(pid, id, charsmax(id));
 
   new player[PlayerData];
@@ -131,7 +131,7 @@ public client_disconnected(pid)
 bool:should_bypass_ar(pid)
 {
   if (get_pcvar_bool(g_pcvar_admin_immunity)) {
-    static flag[16];
+    new flag[16];
     get_pcvar_string(g_pcvar_admin_flag, flag, charsmax(flag));
     if (get_user_flags(pid) & read_flags(flag)) {
       return true;
@@ -151,7 +151,7 @@ get_detect_id(pid, id[], maxlen)
 
 DetectType:get_detect_type()
 {
-  static detect_type[7];
+  new detect_type[7];
   get_pcvar_string(g_pcvar_detect_type, detect_type, charsmax(detect_type));
   if (!strncmp(detect_type, "authid", 6, true)) {
     return DetectType:dt_authid;
