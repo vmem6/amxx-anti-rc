@@ -12,9 +12,6 @@
 #define CLEAR_BIT(%1,%2)  (%1 &= ~(1 << (%2 & 31)))
 #define CHECK_BIT(%1,%2)  (%1 & (1 << (%2 & 31)))
 
-#define MIN_RC_TIME 10.0
-#define MAX_RC_TIME 300.0
-
 enum DetectType
 {
   dt_authid = 0,
